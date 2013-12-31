@@ -55,12 +55,23 @@ $params = array(
      
     //print_r($return);
     
-    foreach ($return as $market) {
+    foreach ($return as $eventTypeArray) {
        // print_r ($market->eventTypeItems->EventType->name) . '<br/>';
-        print_r ($market->eventTypeItems) . '<br/>' . '<br/>' . '<br/>';
-       //        // print_r ($market->eventTypeItems->EventType->id) . '<br/>';
-        
-        
+       // print_r ($eventTypeArray->eventTypeItems) . '<br/>' . '<br/>' . '<br/>';
+       
+       //foreach ($eventTypeArray->eventTypeItems as $eventType) {
+       foreach ($eventTypeArray->eventTypeItems as $eventType) {
+        //print "name: $eventType->name";
+               foreach ($eventType as $event) {
+               
+               echo CHtml::link($event->name,array('betfair/events', 'param1'=>$event->id)); 
+                 
+                      // print "id: $event->id";
+                       print '<br/>';                       
+                      // print "id: $event->name";
+                      // print '<br/>' . '<br/>' . '<br/>';                       
+               }
+       }
     }        
     
 } catch (Exception $e) {
