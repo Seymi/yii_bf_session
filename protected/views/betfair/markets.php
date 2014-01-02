@@ -1,6 +1,6 @@
 <?php
 /* @var $this BetfairController 
-   $events 
+   $markets 
 */
 
 $this->breadcrumbs = array(
@@ -14,60 +14,71 @@ $this->breadcrumbs = array(
 
 <?php
 
-print_r ($markets);
-print '<br/>';
+  
+
+  //print_r ($markets);
+  //print '<br/>';
+  
+/*
+    print_r ($markets->Result->header);
+    print '<br/>';
+    print 'XXXXXXXXXXXXX    XXXXXXXXXXXXXXXXXX   XXXXXXXXXXXXX';
+    print '<br/>';
+    
+    
 
 
-<<<<<<< HEAD
-    $params = array(
-        'request' =>     array(
-                       'header' => array(
-                            'clientStamp' => 0,
-                            'session_token' => $session,
-                           ),
-            ),
-    );
+    print_r ($markets->Result->errorCode);
+    print '<br/>';    
+    print '<br/>';
+    print '<br/>';
+    print ' ############   ##############  #################  ';
+    print '<br/>';
 
-$params = array(
-    'request' => 
-        array(
-            'header' => array(
-                'sessionToken' => $session,
-                'clientStamp' => 0,
-            ),          
-        ),
-    );
+  
+
+    print_r ($markets->Result->marketItems);
+    print '<br/>';
+    print '<br/>';
+    print '<br/>';
+    print 'OOOOO OOOOOOOOOOO OOOOOOOOOOOO OOOOOOOOOOOO';
+    print '<br/>';
+  
+  */
+  
+/*
+               <marketItems xsi:type="n2:ArrayOfMarketSummary">
+               <n2:MarketSummary xsi:type="n2:MarketSummary">
+                  <eventTypeId xsi:type="xsd:int">1</eventTypeId>
+                  <marketId xsi:type="xsd:int">112340417</marketId>
+                  <marketName xsi:type="xsd:string">Asiatisches Handicap</marketName>
+                  <marketType xsi:type="n2:MarketTypeEnum">A</marketType>
+                  <marketTypeVariant xsi:type="n2:MarketTypeVariantEnum">ADL</marketTypeVariant>
+                  <menuLevel xsi:type="xsd:int">6</menuLevel>
+                  <orderIndex xsi:type="xsd:int">807600</orderIndex>
+                  <startTime xsi:type="xsd:dateTime">0001-01-01T00:00:00.000Z</startTime>
+                  <timezone xsi:type="xsd:string">GMT</timezone>
+                  <venue xsi:nil="1"/>
+                  <betDelay xsi:type="xsd:int">0</betDelay>
+                  <numberOfWinners xsi:type="xsd:int">0</numberOfWinners>
+                  <eventParentId xsi:type="xsd:int">27123026</eventParentId>
+                  <exchangeId xsi:type="xsd:int">1</exchangeId>
+               </n2:MarketSummary>
+*/    
+
+
+  foreach ($markets->Result->marketItems->MarketSummary as $market)
+  {
     
+    //print_r ($market);
     
-    //$return = $client->getAllEventTypes($params);
-    $return = $client->__call("getAllEventTypes", array($params));
-     
-    //print_r($return);
+    echo CHtml::link($market->marketName,array('betfair/marketViewer', 'marketId'=>$market->marketId)); 
+
+    print '<br/>';
+    print '<br/>';    
     
-    foreach ($return as $eventTypeArray) {
-       // print_r ($market->eventTypeItems->EventType->name) . '<br/>';
-       // print_r ($eventTypeArray->eventTypeItems) . '<br/>' . '<br/>' . '<br/>';
-       
-       //foreach ($eventTypeArray->eventTypeItems as $eventType) {
-       foreach ($eventTypeArray->eventTypeItems as $eventType) {
-        //print "name: $eventType->name";
-               foreach ($eventType as $event) {
-               
-               echo CHtml::link($event->name,array('betfair/events', 'param1'=>$event->id)); 
-                 
-                      // print "id: $event->id";
-                       print '<br/>';                       
-                      // print "id: $event->name";
-                      // print '<br/>' . '<br/>' . '<br/>';                       
-               }
-       }
-    }        
-    
-} catch (Exception $e) {
-    echo "Exception occured: " . $e;
-}
+  }
+ 
 
 ?>
-=======
-?>
->>>>>>> events and markets
+

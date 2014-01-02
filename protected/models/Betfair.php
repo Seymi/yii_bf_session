@@ -85,6 +85,26 @@ class Betfair extends CFormModel
          return $return;
      }  
      
+     public function marketViewer($session, $marketId)
+     {
+         try {
+         $wsdl_url = 'https://api.betfair.com/global/v3/BFGlobalService.wsdl';
+         $client = new SoapClient($wsdl_url);
+
+         $params = array( 'request' => array( 'header' => array( 'sessionToken' => $session,
+                                                                 'clientStamp' => 0,
+                                                               ),
+                                              'marketId'=> $marketId,
+                                            ),
+                        );
+
+         $return = $client->__call("getMarket", array($params));
+         } catch (Exception $e) {
+              echo "Exception occured: " . $e;
+              return null;
+         }
+         return $return;
+     }  
      
 
 }
