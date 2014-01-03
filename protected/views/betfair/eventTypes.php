@@ -2,7 +2,7 @@
 /* @var $this BetfairController */
 
 $this->breadcrumbs = array(
-    'Betfair' => array('/betfair'),
+    'Betfair' => array('/betfair/eventTypes'),
     'Sportarten',
 );
 ?>

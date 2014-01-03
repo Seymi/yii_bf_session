@@ -4,15 +4,18 @@
 */
 
 $this->breadcrumbs = array(
-    'Betfair' => array('/betfair'),
+    'Betfair Sportarten' => array('/betfair/eventTypes'),
     'Events',
 );
 ?>
 
 <h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
 
+
+
 <?php
 
+/*
     print_r ($events->Result->header);
     print '<br/>';
 
@@ -23,6 +26,7 @@ $this->breadcrumbs = array(
     print '<br/>';
     print '<br/>';
     print '<br/>';
+ */
     
     print '<table>';
     
@@ -63,7 +67,7 @@ $this->breadcrumbs = array(
     if (array_key_exists('BFEvent', $events->Result->eventItems ))
     {        
             
-    if ( count($events->Result->eventItems->BFEvent) >1)
+    if ( count($events->Result->eventItems->BFEvent) >0)
     {
         
              $sorted_events = array();
@@ -99,7 +103,6 @@ $this->breadcrumbs = array(
     foreach ($sorted_events as $event)
         
     {
-        
         print '<tr>';
         print '<td>';
         echo CHtml::link($event->eventName,array('betfair/events', 'eventId'=>$event->eventId)); 
@@ -115,8 +118,7 @@ $this->breadcrumbs = array(
         echo $event->menuLevel; 
         print '</td>';
         
-        
-        print_r($event);
+       // print_r($event);
         
         print '<tr>';
         //print '<br/>';
@@ -124,16 +126,9 @@ $this->breadcrumbs = array(
     
     }  
     
- 
-    
   }
-    
     print '</table>';
-
-
     print '<br/>';
 ?>
 
 <p><?php echo "your session: $session"; ?></p>
-
-

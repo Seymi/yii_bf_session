@@ -67,16 +67,39 @@ $this->breadcrumbs = array(
 */    
 
 
-  foreach ($markets->Result->marketItems->MarketSummary as $market)
-  {
-    
-    //print_r ($market);
-    
-    echo CHtml::link($market->marketName,array('betfair/marketViewer', 'marketId'=>$market->marketId)); 
+    if ( count($markets->Result->marketItems->MarketSummary ) >1)
+    {
+        
+             $sorted_markets = array();
+             foreach($markets->Result->marketItems->MarketSummary as $record)
+             {
+                 $sorted_markets[$record->marketName] = $record;
+             }
 
+             ksort($sorted_markets);
+
+             $records = array();
+
+             foreach($sorted_markets as $record)
+             {
+                 $records []= $record;
+             }
+
+             $sorted_markets = $records;
+    }        
+    else
+    {
+        $sorted_markets = array($markets->Result->marketItems->MarketSummary);
+    }
+
+
+
+  //foreach ($markets->Result->marketItems->MarketSummary as $market)
+  foreach ($sorted_markets as $market)    
+  {
+    //print_r ($market);
+    echo CHtml::link($market->marketName,array('betfair/marketViewer', 'marketId'=>$market->marketId)); 
     print '<br/>';
-    print '<br/>';    
-    
   }
  
 

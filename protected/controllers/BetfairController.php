@@ -2,8 +2,8 @@
 
 class BetfairController extends Controller
 {
-	public function actionLogin()
-	{
+  public function actionLogin()
+  {
     $model = new betfair;
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='betfair-login-form')
@@ -41,44 +41,44 @@ class BetfairController extends Controller
       $this->redirect(array('markets', 'eventId'=>$eventId));
     } else
     {
-		  $this->render('events',array('session'=>$session,'events'=>$events,));
+      $this->render('events',array('session'=>$session,'events'=>$events,));
     }
   }
 
         
   public function actionEventTypes()
-	{
+  {
     // session cookie is set by betfair->login
     $session = Yii::app()->request->cookies['session']->value;
     $this->render('eventTypes',array('session'=>$session,));
   }
         
   public function actionMarkets($eventId)
-	{
+  {
     // session cookie is set by betfair->login
     $session = Yii::app()->request->cookies['session']->value;
     $model = new Betfair;
     $markets = $model->events($session, $eventId);
     //$dataProvider=new CArrayDataProvider($markets);
     
-  	//$this->render('markets',array('markets'=>$markets, 'dataProvider'=>$dataProvider));
-  	$this->render('markets',array('markets'=>$markets));
-        
-	}
+    //$this->render('markets',array('markets'=>$markets, 'dataProvider'=>$dataProvider));
+    $this->render('markets',array('markets'=>$markets));
+  }
 
 
   public function actionMarketViewer($marketId)
-	{
+  {
     // session cookie is set by betfair->login
     $session = Yii::app()->request->cookies['session']->value;
     $model = new Betfair;
     $marketDetails = $model->marketViewer($session, $marketId);
+    $marketOdds = $model->marketOdds($session, $marketId);
+    
     //$dataProvider=new CArrayDataProvider($markets);
     
-  	//$this->render('markets',array('markets'=>$markets, 'dataProvider'=>$dataProvider));
-  	$this->render('marketViewer',array('marketId'=>$marketId));
-        
-	}
+    //$this->render('markets',array('markets'=>$markets, 'dataProvider'=>$dataProvider));
+    $this->render('marketViewer',array('marketDetails'=>$marketDetails, 'marketOdds'=>$marketOdds));
+  }
 
 
         
