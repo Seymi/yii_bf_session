@@ -5,9 +5,7 @@
         <group>
             <file>file:/C:/Sites/yii_bf_session/protected/views/betfair/events.php</file>
             <file>file:/C:/Sites/yii_bf_session/protected/views/betfair/marketViewer.php</file>
-            <file>file:/C:/Sites/yii_bf_session/protected/views/layouts/main.php</file>
             <file>file:/C:/Sites/yii_bf_session/protected/models/Betfair.php</file>
-            <file>file:/C:/Sites/yii_bf_session/protected/views/betfair/eventTypes.php</file>
             <file>file:/C:/Sites/yii_bf_session/protected/controllers/BetfairController.php</file>
             <file>file:/C:/Sites/yii_bf_session/protected/views/betfair/markets.php</file>
         </group>

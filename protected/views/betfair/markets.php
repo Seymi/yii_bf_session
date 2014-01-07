@@ -66,6 +66,9 @@ $this->breadcrumbs = array(
                </n2:MarketSummary>
 */    
 
+    //check if array has more than one element
+    if (array_key_exists('MarketSummary', $markets->Result->marketItems ))
+    {        
 
     if ( count($markets->Result->marketItems->MarketSummary ) >1)
     {
@@ -101,6 +104,11 @@ $this->breadcrumbs = array(
     echo CHtml::link($market->marketName,array('betfair/marketViewer', 'marketId'=>$market->marketId)); 
     print '<br/>';
   }
+  
+  } else
+  {
+     print "Es gibt derzeit keine Wetten auf diesem Markt!";
+  }    
  
 
 ?>

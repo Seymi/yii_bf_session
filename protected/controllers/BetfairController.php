@@ -36,12 +36,15 @@ class BetfairController extends Controller
     $model = new Betfair;
     $events = $model->events($session, $eventId);
     
-    if (array_key_exists('MarketSummary', $events->Result->marketItems )) 
-    {
-      $this->redirect(array('markets', 'eventId'=>$eventId));
-    } else
+    // first check BFEvent
+    // $events->Result->eventItems->BFEvent
+    if (array_key_exists('BFEvent', $events->Result->eventItems )) 
+    //if (array_key_exists('MarketSummary', $events->Result->marketItems )) 
     {
       $this->render('events',array('session'=>$session,'events'=>$events,));
+    } else
+    {
+      $this->redirect(array('markets', 'eventId'=>$eventId));
     }
   }
 

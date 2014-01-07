@@ -67,7 +67,7 @@ $this->breadcrumbs = array(
     if (array_key_exists('BFEvent', $events->Result->eventItems ))
     {        
             
-    if ( count($events->Result->eventItems->BFEvent) >0)
+    if ( count($events->Result->eventItems->BFEvent) >1)
     {
         
              $sorted_events = array();

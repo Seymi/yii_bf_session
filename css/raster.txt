@@ -81,3 +81,158 @@
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+
+
+
+
+2 Weg             L3
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+| odd |  1.01  |  1.02  |  1.03  |  1.04  |  1.99  |  2.00  |  9.8   |  10.0  |                                                95      100      990      1000  |
+|stake| 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+| odd |  1.01  |  1.02  |  1.03  |  1.04  |  1.99  |  2.00  |  9.8   |  10.0  |                                                95      100      990      1000  |
+|stake| 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 | 123456 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+Mehr/Weniger als 4,5 Tore
+stdClass Object ( [Result] => stdClass Object ( [header] => stdClass Object ( [errorCode] => OK 
+                                                                              [minorErrorCode] => 
+                                                                              [sessionToken] => hWdXDA8PPOApA3AkZSnA9HYGKkZHKyAe5UMP2So38+k= 
+                                                                              [timestamp] => 2014-01-06T06:08:20.207Z ) 
+                                                [errorCode] => OK 
+                                                [marketPrices] => stdClass Object ( [currencyCode] => EUR 
+                                                                                    [delay] => 0 
+                                                                                    [discountAllowed] => 1 
+                                                                                    [lastRefresh] => 1388988383940 
+                                                                                    [marketBaseRate] => 5 
+                                                                                    [marketId] => 112324681 
+                                                                                    [marketInfo] => 
+                                                                                    [removedRunners] => 
+                                                                                    [marketStatus] => ACTIVE 
+                                                                                    [numberOfWinners] => 1 
+                                                                                    [bspMarket] => 
+                                                                                    [runnerPrices] => stdClass Object ( [RunnerPrices] => Array ( [0] => stdClass Object ( [asianLineId] => 0 
+                                                                                                                                                                           [bestPricesToBack] => stdClass Object ( [Price] => Array ( [0] => stdClass Object ( [amountAvailable] => 503.73 
+                                                                                                                                                                                                                                                               [betType] => L 
+                                                                                                                                                                                                                                                               [depth] => 1 
+                                                                                                                                                                                                                                                               [price] => 1.63 ) 
+                                                                                                                                                                                                                                      [1] => stdClass Object ( [amountAvailable] => 260.15 
+                                                                                                                                                                                                                                                               [betType] => L 
+                                                                                                                                                                                                                                                               [depth] => 2 
+                                                                                                                                                                                                                                                               [price] => 1.61 ) 
+                                                                                                                                                                                                                                      [2] => stdClass Object ( [amountAvailable] => 21.9 
+                                                                                                                                                                                                                                                               [betType] => L 
+                                                                                                                                                                                                                                                               [depth] => 3 
+                                                                                                                                                                                                                                                               [price] => 1.55 ) ) ) 
+                                                                                                                                                                           [bestPricesToLay]  => stdClass Object ( [Price] => Array ( [0] => stdClass Object ( [amountAvailable] => 479.2 
+                                                                                                                                                                                                                                                               [betType] => B 
+                                                                                                                                                                                                                                                               [depth] => 1 
+                                                                                                                                                                                                                                                               [price] => 1.65 ) 
+                                                                                                                                                                                                                                      [1] => stdClass Object ( [amountAvailable] => 65.51 
+                                                                                                                                                                                                                                                               [betType] => B 
+                                                                                                                                                                                                                                                               [depth] => 2 
+                                                                                                                                                                                                                                                               [price] => 1.69 ) 
+                                                                                                                                                                                                                                      [2] => stdClass Object ( [amountAvailable] => 12.05 
+                                                                                                                                                                                                                                                               [betType] => B 
+                                                                                                                                                                                                                                                               [depth] => 3 
+                                                                                                                                                                                                                                                               [price] => 1.73 
+                                                                                                                                                                                                                                                             ) 
+                                                                                                                                                                                                                                    )
+                                                                                                                                                                                                                 ) 
+                                                                                                                                                                           [handicap] => 0 
+                                                                                                                                                                           [lastPriceMatched] => 1.64 
+                                                                                                                                                                           [reductionFactor] => 0 
+                                                                                                                                                                           [selectionId] => 1222347
+                                                                                                                                                                           [sortOrder] => 1 
+                                                                                                                                                                           [totalAmountMatched] => 1174.81
+                                                                                                                                                                           [vacant] => 
+                                                                                                                                                                           [farBSP] => 0 
+                                                                                                                                                                           [nearBSP] => 0 
+                                                                                                                                                                           [actualBSP] => 0 ) 
+                                                                                                                                                  [1] => stdClass Object ( [asianLineId] => 0 
+                                                                                                                                                                           [bestPricesToBack] => stdClass Object ( [Price] => Array ( [0] => stdClass Object ( [amountAvailable] => 8.24 
+                                                                                                                                                                                                                                                               [betType] => L 
+                                                                                                                                                                                                                                                               [depth] => 1 
+                                                                                                                                                                                                                                                               [price] => 2.56 ) 
+                                                                                                                                                                                                                                      [1] => stdClass Object ( [amountAvailable] => 294.17 
+                                                                                                                                                                                                                                                               [betType] => L 
+                                                                                                                                                                                                                                                               [depth] => 2 
+                                                                                                                                                                                                                                                               [price] => 2.54 ) 
+                                                                                                                                                                                                                                      [2] => stdClass Object ( [amountAvailable] => 25.96 
+                                                                                                                                                                                                                                                               [betType] => L 
+                                                                                                                                                                                                                                                               [depth] => 3 
+                                                                                                                                                                                                                                                               [price] => 2.44 ) ) ) 
+                                                                                                                                                                           [bestPricesToLay]  => stdClass Object ( [Price] => Array ( [0] => stdClass Object ( [amountAvailable] => 499.29 
+                                                                                                                                                                                                                                                               [betType] => B 
+                                                                                                                                                                                                                                                               [depth] => 1 
+                                                                                                                                                                                                                                                               [price] => 2.72 ) 
+                                                                                                                                                                                                                                      [1] => stdClass Object ( [amountAvailable] => 12.05 
+                                                                                                                                                                                                                                                               [betType] => B 
+                                                                                                                                                                                                                                                               [depth] => 2 
+                                                                                                                                                                                                                                                               [price] => 2.8 ) ) )
+                                                                                                                                                                           [handicap] => 0 
+                                                                                                                                                                           [lastPriceMatched] => 2.58 
+                                                                                                                                                                           [reductionFactor] => 0 
+                                                                                                                                                                           [selectionId] => 1222346 
+                                                                                                                                                                           [sortOrder] => 2 
+                                                                                                                                                                           [totalAmountMatched] => 388.2 
+                                                                                                                                                                           [vacant] => 
+                                                                                                                                                                           [farBSP] => 0 
+                                                                                                                                                                           [nearBSP] => 0 
+                                                                                                                                                                           [actualBSP] => 0 ) ) ) ) 
+                                                                                    
+                                                                                    [minorErrorCode] => ) ) 
+
+
+
+
+
+/*************
+* Beispiel für Back nur 1000
+-----------------------------
+
+Mehr/Weniger als 4,5 Karten
+stdClass Object 
+  ( [Result] => stdClass Object ( [header] => stdClass Object ( [errorCode] => OK 
+                                                                [minorErrorCode] => 
+                                                                [sessionToken] => hWdXDA8PPOApA3AkZSnA9HYGKkZHKyAe5UMP2So38+k= 
+                                                                [timestamp] => 2014-01-06T05:56:54.564Z ) 
+                                  [errorCode] => OK 
+                                  [marketPrices] => stdClass Object ( [currencyCode] => EUR 
+                                                                      [delay] => 0 
+                                                                      [discountAllowed] => 1 
+                                                                      [lastRefresh] => 1388961227883 
+                                                                      [marketBaseRate] => 5 
+                                                                      [marketId] => 112324774 
+                                                                      [marketInfo] => 
+                                                                      [removedRunners] => 
+                                                                      [marketStatus] => ACTIVE 
+                                                                      [numberOfWinners] => 1 
+                                                                      [bspMarket] => 
+                                                                      [runnerPrices] => stdClass Object ( [RunnerPrices] => Array ( [0] => stdClass Object ( [asianLineId] => 0 
+                                                                                                                                                             [bestPricesToBack] => stdClass Object ( [Price] => Array ( [0] => stdClass Object ( [amountAvailable] => 6.92 
+                                                                                                                                                                                                                                                 [betType] => L 
+                                                                                                                                                                                                                                                 [depth] => 1 
+                                                                                                                                                                                                                                                 [price] => 1.44 ) 
+                                                                                                                                                                                                                        [1] => stdClass Object ( [amountAvailable] => 4.77 
+                                                                                                                                                                                                                                                 [betType] => L 
+                                                                                                                                                                                                                                                 [depth] => 2 
+                                                                                                                                                                                                                                                 [price] => 1.43 ) 
+                                                                                                                                                                                                                        [2] => stdClass Object ( [amountAvailable] => 325.16 
+                                                                                                                                                                                                                                                 [betType] => L 
+                                                                                                                                                                                                                                                 [depth] => 3 
+                                                                                                                                                                                                                                                 [price] => 1.42 ) ) ) 
+                                                                                                                                                             [bestPricesToLay] => stdClass Object ( [Price] => stdClass Object ( [amountAvailable] => 5.29 
+                                                                                                                                                                                                                                 [betType] => B 
+                                                                                                                                                                                                                                 [depth] => 1 
+                                                                                                                                                                                                                                 [price] => 1000 ) ) [handicap] => 0 [lastPriceMatched] => 0 [reductionFactor] => 0 [selectionId] => 6384544 [sortOrder] => 1 [totalAmountMatched] => 0 [vacant] => [farBSP] => 0 [nearBSP] => 0 [actualBSP] => 0 ) [1] => stdClass Object ( [asianLineId] => 0 [bestPricesToBack] => stdClass Object ( [Price] => Array ( [0] => stdClass Object ( [amountAvailable] => 6.47 [betType] => L [depth] => 1 [price] => 1.54 ) [1] => stdClass Object ( [amountAvailable] => 4.77 [betType] => L [depth] => 2 [price] => 1.53 ) [2] => stdClass Object ( [amountAvailable] => 301.07 [betType] => L [depth] => 3 [price] => 1.52 ) ) ) [bestPricesToLay] => stdClass Object ( [Price] => stdClass Object ( [amountAvailable] => 5.29 [betType] => B [depth] => 1 [price] => 1000 ) ) [handicap] => 0 [lastPriceMatched] => 0 [reductionFactor] => 0 [selectionId] => 6384543 [sortOrder] => 2 [totalAmountMatched] => 0 [vacant] => [farBSP] => 0 [nearBSP] => 0 [actualBSP] => 0 ) ) ) ) [minorErrorCode] => ) ) 
+
+
+
