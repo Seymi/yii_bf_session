@@ -162,7 +162,8 @@ $this->breadcrumbs = array(
       
     print '<tr>';
     //print '<td rowspan="2" >';
-    
+    //print '<td rowspan="1" >';
+    print '<td>';
     print 'selectionId: ' . $runnerPrice->selectionId;      print ' >> ';
     print 'asianLineId: ' . $runnerPrice->asianLineId;       print ' >> ';
     print 'handicap: ' .  $runnerPrice->handicap;     print ' >> ';
@@ -174,7 +175,24 @@ $this->breadcrumbs = array(
     print '</td>';
     
     print '<td class="odd_back">';
-    print_r ($runnerPrice->bestPricesToBack);
+    //print_r ($runnerPrice->bestPricesToBack);
+    
+    
+  // Vorlage von eventHierarchy
+  //foreach ($marketDetails->Result->market->eventHierarchy->EventId as $eventHierarchyEventId)
+  //{
+  //    echo CHtml::link($eventHierarchyEventId, array('betfair/events', 'eventId'=>$eventHierarchyEventId)) . ' >> '; 
+  //}
+    
+    
+    //foreach ($runnerPrice->bestPricesToBack->Price->price as $price)
+    foreach ($runnerPrice->bestPricesToBack as $price)
+        
+    {
+        print_r( $price);
+        //print $price->amountAvailable;
+    }    
+    
     print '</td>';
 
     print '<td class="odd_lay">';    
