@@ -109,7 +109,7 @@ $this->breadcrumbs = array(
 //  print '<br/>';
 
   $show_header = true;
-  //$show_header = false;
+  $show_header = false;
   
   if ($show_header)
   {    
@@ -142,7 +142,14 @@ $this->breadcrumbs = array(
   
  //print_r($marketOdds->Result->marketPrices->runnerPrices);
   print '<br/>';
+  
+  ?>
 
+
+  <div id="odds">
+  <table cellpadding="1" cellspacing="1" border="2">
+
+  <?php
   foreach ($marketOdds->Result->marketPrices->runnerPrices->RunnerPrices as $runnerPrice)
   {
 
@@ -153,6 +160,9 @@ $this->breadcrumbs = array(
     print '<br/>';
    */ 
       
+    print '<tr>';
+    //print '<td rowspan="2" >';
+    
     print 'selectionId: ' . $runnerPrice->selectionId;      print ' >> ';
     print 'asianLineId: ' . $runnerPrice->asianLineId;       print ' >> ';
     print 'handicap: ' .  $runnerPrice->handicap;     print ' >> ';
@@ -160,17 +170,26 @@ $this->breadcrumbs = array(
     print 'sortOrder: ' . $runnerPrice->sortOrder;      print ' >> ';
     print 'lastPrice: ' . $runnerPrice->lastPriceMatched;      print ' >> ';
     print 'totalAmount: ' . $runnerPrice->totalAmountMatched;      print '<br/>';
-    print '<br/>';    
+    print '<br/>'; 
+    print '</td>';
     
+    print '<td class="odd_back">';
     print_r ($runnerPrice->bestPricesToBack);
-    print '<br/>';
+    print '</td>';
 
+    print '<td class="odd_lay">';    
     print_r ($runnerPrice->bestPricesToLay);
-    print '<br/>';
-            
-    print '<br/>';
+    print '</td>';
+
+    print '</tr>';
   }    
   
+  ?>
+  
+  </table>
+</div>
+
+  <?php
   
   print_r( $marketOdds->Result->minorErrorCode);
   print '<br/>';

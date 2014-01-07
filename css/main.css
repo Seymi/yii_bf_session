@@ -227,3 +227,34 @@ div.search-form
 {
 	background: #80CFFF;
 }
+
+
+
+
+.odd_back {
+  color: black;
+  background-color: lightblue;
+  text-align: center;
+  font-weight: bold;
+}
+
+.amnt_back {
+  color: black;
+  background-color: lightblue;
+  text-align: center;
+
+}
+
+.odd_lay {
+  color: black;
+  background-color: magenta;
+  text-align: center;
+  font-weight: bold;
+}
+
+.amnt_lay {
+  color: black;
+  background-color: magenta;
+  text-align: center;
+}
+

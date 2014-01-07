@@ -236,3 +236,33 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix, .container {display:block;}
 .clear {clear:both;}
+
+
+.odd_back {
+  color: black;
+  background-color: lightblue;
+  text-align: center;
+  font-weight: bold;
+}
+
+.amnt_back {
+  color: black;
+  background-color: lightblue;
+  text-align: center;
+
+}
+
+.odd_lay {
+  color: black;
+  background-color: magenta;
+  text-align: center;
+  font-weight: bold;
+}
+
+.amnt_lay {
+  color: black;
+  background-color: magenta;
+  text-align: center;
+}
+
+

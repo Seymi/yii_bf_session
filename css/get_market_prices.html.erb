@@ -1,0 +1,62 @@
+<h1>Betfair#get_market_prices</h1>
+<p>Find me in app/views/betfair/get_market_prices.html.erb</p>
+
+<p>Market Prices: </p>
+
+<p>market_id: <%=  @market_id %> </p>
+
+
+<div id="odds">
+  <table cellpadding="1" cellspacing="1" border="2">
+<% for runner_price in @mp[:runner_prices] do  %>
+
+   <tr>
+     <td rowspan="2" >
+    <%= runner_price[:selection_id] %> <br />
+     </td>
+
+
+
+     <% for back in runner_price[:best_prices_to_back][:price].reverse do  %>
+            <td class="odd_back">
+              <%= link_to back[:price], betfair_set_place_bet_path( :locals => { :market => @market_id, :selected_bet => runner_price[:selection_id], :odd => back[:price], :asia_line => runner_price[:asian_line_id], :available_stake => back[:amount_available], :bet_type => back[:bet_type] } ) %>
+            </td>
+        <% end %>
+
+        <td>-----</td>
+
+        <% for lay in runner_price[:best_prices_to_lay][:price] do  %>
+            <td class="odd_lay">
+              <%= link_to lay[:price], betfair_set_place_bet_path( :locals => { :market => @market_id, :selected_bet => runner_price[:selection_id], :odd => lay[:price], :asia_line => runner_price[:asian_line_id], :available_stake => lay[:amount_available], :bet_type => lay[:bet_type] } ) %>
+            </td>
+        <% end %>
+
+      </tr>
+
+      <tr>
+        <% for back in runner_price[:best_prices_to_back][:price].reverse do  %>
+            <td class="amnt_back">
+              <%= link_to back[:amount_available], betfair_set_place_bet_path( :locals => { :market => @market_id, :selected_bet => runner_price[:selection_id], :odd => back[:price], :asia_line => runner_price[:asian_line_id], :available_stake => back[:amount_available], :bet_type => back[:bet_type] } ) %>
+            </td>
+        <% end %>
+
+        <td>-----</td>
+
+        <% for lay in runner_price[:best_prices_to_lay][:price] do  %>
+            <td class="amnt_lay">
+              <%= link_to lay[:amount_available], betfair_set_place_bet_path( :locals => { :market => @market_id, :selected_bet => runner_price[:selection_id], :odd => lay[:price], :asia_line => runner_price[:asian_line_id], :available_stake => lay[:amount_available], :bet_type => lay[:bet_type] } ) %>
+            </td>
+        <% end %>
+
+      </tr>
+
+
+<% end %>
+  </table>
+
+</div>
+
+
+<p>
+  <%= link_to "Logout", betfair_logout_path %>
+</p>
