@@ -88,14 +88,16 @@ $this->breadcrumbs = array(
   }
   
   // array of selectionId and runners
-  $runners = array();
-             foreach($marketDetails->Result->market->runners->Runner  as $runner)
-             {
-                 $runners[$runner->selectionId] = $runner->name;
-             }          
-             
-  print_r($runners);
-  
+  //check if array has more than one element
+  if (array_key_exists('Runner', $marketDetails->Result->market->runners ))
+  {        
+      $runners = array();
+      foreach($marketDetails->Result->market->runners->Runner  as $runner)
+      {
+          $runners[$runner->selectionId] = $runner->name;
+      }          
+      print_r($runners);
+  }    
   
 ?>
 
@@ -150,57 +152,133 @@ $this->breadcrumbs = array(
   <table cellpadding="1" cellspacing="1" border="2">
 
   <?php
-  foreach ($marketOdds->Result->marketPrices->runnerPrices->RunnerPrices as $runnerPrice)
+  
+  //check if array has at least one element
+  if (array_key_exists('RunnerPrices', $marketOdds->Result->marketPrices->runnerPrices ))
   {
-
-   /*
-    print_r ($runnerPrice);
-    print '<br/>';
-    print 'rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr';
-    print '<br/>';
-   */ 
       
-    print '<tr>';
-    //print '<td rowspan="2" >';
-    //print '<td rowspan="1" >';
-    print '<td>';
-    print 'selectionId: ' . $runnerPrice->selectionId;      print ' >> ';
-    print 'asianLineId: ' . $runnerPrice->asianLineId;       print ' >> ';
-    print 'handicap: ' .  $runnerPrice->handicap;     print ' >> ';
-    print 'reductionFactor: ' . $runnerPrice->reductionFactor;        print ' >> ';
-    print 'sortOrder: ' . $runnerPrice->sortOrder;      print ' >> ';
-    print 'lastPrice: ' . $runnerPrice->lastPriceMatched;      print ' >> ';
-    print 'totalAmount: ' . $runnerPrice->totalAmountMatched;      print '<br/>';
-    print '<br/>'; 
-    print '</td>';
-    
-    print '<td class="odd_back">';
-    //print_r ($runnerPrice->bestPricesToBack);
-    
-    
-  // Vorlage von eventHierarchy
-  //foreach ($marketDetails->Result->market->eventHierarchy->EventId as $eventHierarchyEventId)
-  //{
-  //    echo CHtml::link($eventHierarchyEventId, array('betfair/events', 'eventId'=>$eventHierarchyEventId)) . ' >> '; 
-  //}
-    
-    
-    //foreach ($runnerPrice->bestPricesToBack->Price->price as $price)
-    foreach ($runnerPrice->bestPricesToBack as $price)
-        
+    foreach ($marketOdds->Result->marketPrices->runnerPrices->RunnerPrices as $runnerPrice)
     {
-        print_r( $price);
-        //print $price->amountAvailable;
+
+     /*
+      print_r ($runnerPrice);       print '<br/>';
+     */ 
+
+      print '<tr>';
+      //print '<td rowspan="2" >';
+      //print '<td rowspan="1" >';
+      print '<td>';
+      print 'selectionId: ' . $runnerPrice->selectionId;      //print '<br/>';
+      //print 'asianLineId: ' . $runnerPrice->asianLineId;       print ' >> ';
+      //print 'handicap: ' .  $runnerPrice->handicap;     print ' >> ';
+      //print 'reductionFactor: ' . $runnerPrice->reductionFactor;        print ' >> ';
+      //print 'sortOrder: ' . $runnerPrice->sortOrder;      print ' >> ';
+      //print 'lastPrice: ' . $runnerPrice->lastPriceMatched;      print ' >> ';
+      //print 'totalAmount: ' . $runnerPrice->totalAmountMatched;      print '<br/>';
+      //print '_________________'; 
+      print '</td>';
+
+      print '<td class="odd_back">';
+      //print_r ($runnerPrice->bestPricesToBack);
+
+    // Vorlage von eventHierarchy
+    //foreach ($marketDetails->Result->market->eventHierarchy->EventId as $eventHierarchyEventId)
+    //{
+    //    echo CHtml::link($eventHierarchyEventId, array('betfair/events', 'eventId'=>$eventHierarchyEventId)) . ' >> '; 
+    //}
+
+      //foreach ($runnerPrice->bestPricesToBack->Price->price as $price)
+ 
+    //check if array has more than one element
+    if (array_key_exists('bestPricesToBack', $runnerPrice ))
+    {        
+      
+      foreach ($runnerPrice->bestPricesToBack as $price)
+      {
+
+            $sorted_prices = array();
+            foreach($price as $p)
+            {
+                $sorted_prices[$p->depth] = $p;
+            }
+
+            krsort($sorted_prices);
+
+            $records = array();
+            foreach($sorted_prices as $record)
+            {
+                $records []= $record;
+            }
+
+            $sorted_prices = $records;
+          
+            
+          print '<table>';
+          print '<tr>';
+          
+          //foreach ($price as $p)
+          foreach ($sorted_prices as $p)  
+          {
+             print '<td>';
+             print $p->price;
+             print '<br/>';
+             print $p->amountAvailable;
+             print '</td>';
+          }    
+
+          print '</tr>';
+          print '</table>';
+          
+          //print_r( $price);
+          //print $price->amountAvailable;
+      }
+      
+    }
+
+      print '</td>';
+
+      print '<td class="odd_lay">';    
+      //print_r ($runnerPrice->bestPricesToLay);
+      foreach ($runnerPrice->bestPricesToLay as $price)
+      {
+          print '<table>';
+          print '<tr>';
+          
+          foreach ($price as $p)
+          {
+             print '<td>';
+             print $p->price;
+             print '<br/>';
+             print $p->amountAvailable;
+             print '</td>';
+             
+          } 
+          print '</tr>';
+          print '</table>';
+          
+          
+          //print_r( $price);
+          //print $price->amountAvailable;
+      }    
+
+      print '</td>';
+      
+      
+      print '<td>';
+          print '<table>';
+          print '<tr>';
+                print 'lastPrice: ' . $runnerPrice->lastPriceMatched;      print '<br/>';
+                print 'totalAmount: ' . $runnerPrice->totalAmountMatched;      
+          print '</tr>';
+          print '</table>';
+      print '</td>';
+
+
+      print '</tr>';
     }    
-    
-    print '</td>';
+  
+  }        
 
-    print '<td class="odd_lay">';    
-    print_r ($runnerPrice->bestPricesToLay);
-    print '</td>';
-
-    print '</tr>';
-  }    
   
   ?>
   
