@@ -3,7 +3,7 @@
 <script type="text/javascript">
     
     auto_refresh = true;
-    auto_refresh = false;
+    //auto_refresh = false;
     
     
     if (auto_refresh) window.onload = setupRefresh;

@@ -36,7 +36,9 @@
                                 //array('label'=>'Betfair Events', 'url'=>array('/betfair/events'), 'visible'=>!Yii::app()->user->isGuest),
                                 array('label'=>'Betfair Login', 'url'=>array('/betfair/login'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                                //array('label'=>'jetzt: ' . date('Y-m-d') . ' ' . time(), null),
+                                array('label'=>'jetzt: ' . date('Y-m-d H:i:s'), null),
 			),
 		)); ?>
 	</div><!-- mainmenu -->
