@@ -74,15 +74,31 @@ class BetfairController extends Controller
     // session cookie is set by betfair->login
     $session = Yii::app()->request->cookies['session']->value;
     $model = new Betfair;
+    
     $marketDetails = $model->marketViewer($session, $marketId);
+        
+    if ($marketDetails===null)
+    {
+        $this->render('error', 'konnte MarketDetails nicht lesen');
+    }
+            
+    //$this->render('markets',array('markets'=>$markets, 'dataProvider'=>$dataProvider));
+    $this->actionOddViewer($marketId, $marketDetails);
+  }
+
+  //public function actionOddViewer($marketId, $marketDetails=array())
+  public function actionOddViewer($marketId, $marketDetails)
+  {
+    // session cookie is set by betfair->login
+    $session = Yii::app()->request->cookies['session']->value;
+    $model = new Betfair;
     $marketOdds = $model->marketOdds($session, $marketId);
     
     //$dataProvider=new CArrayDataProvider($markets);
     
     //$this->render('markets',array('markets'=>$markets, 'dataProvider'=>$dataProvider));
-    $this->render('marketViewer',array('marketDetails'=>$marketDetails, 'marketOdds'=>$marketOdds));
+    $this->render('oddViewer',array('marketId'=>$marketId, 'marketDetails'=>$marketDetails, 'marketOdds'=>$marketOdds));
   }
-
 
         
 	/**

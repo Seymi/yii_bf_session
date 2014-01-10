@@ -5,11 +5,15 @@
     auto_refresh = true;
     //auto_refresh = false;
     
+    refresh_time = 2000; // ms
+    
     
     if (auto_refresh) window.onload = setupRefresh;
     
     function setupRefresh() {
-      setTimeout("refreshPage();", 10000); // milliseconds
+      //setTimeout("refreshPage();", refreh_time); // milliseconds
+      setTimeout("refreshPage();", 2000); // milliseconds
+
     }
     function refreshPage() {
        window.location = location.href;
@@ -31,9 +35,23 @@ $this->breadcrumbs = array(
 );
 ?>
 
-
-<h2><?php print $marketDetails->Result->market->menuPath; ?></h2>
-
+  <h2>
+      <?php
+      
+      
+      try {
+          if (array_key_exists('Result', $marketDetails))
+            if (array_key_exists('market', $marketDetails->Result))
+              if ( is_array($marketDetails->Result->market) && array_key_exists('menuPath', $marketDetails->Result->market) ) 
+                print $marketDetails->Result->market->menuPath;
+              else
+                 print "menuPath not found"; 
+      } catch (Exception $e) {
+          echo "Exception occured: " . $e;
+          $this->render('error', $e);
+      }
+      ?>
+  </h2>
 
 <?php
 
@@ -42,18 +60,22 @@ $this->breadcrumbs = array(
   print '<br/>';
   print '<br/>';
   print '<br/>';
-
+*/
+/*
   print_r(array_keys($marketDetails));
   print '<br/>';
   print '<br/>';
   print '<br/>';
+ 
+ */
 
+/*
   print_r ($marketDetails->Result->header);
   print '<br/>';
   print 'XXXXXXXXXXXXX    XXXXXXXXXXXXXXXXXX   XXXXXXXXXXXXX';
   print '<br/>';
   print '<br/>';
-
+*/
   print_r ($marketDetails->Result->errorCode);
   print '<br/>';    
   print '<br/>';
@@ -63,6 +85,7 @@ $this->breadcrumbs = array(
   print '<br/>';
     
     
+/*
   var_dump($marketDetails->Result->market);
   print '<br/>';
   print '<br/>';
@@ -72,24 +95,32 @@ $this->breadcrumbs = array(
   print '<br/>';
   print '<br/>';
   print '<br/>';
-*/    
+*/
 
+/*
   print "Country: " . $marketDetails->Result->market->countryISO3; print " >> ";
   print "BaseRate: " . $marketDetails->Result->market->marketBaseRate; print " >> ";
   print "marketId: " .  $marketDetails->Result->market->marketId; print " >> ";
   print "marketStatus: " . $marketDetails->Result->market->marketStatus; print " >> ";
   print "marketSuspendTime: " . $marketDetails->Result->market->marketSuspendTime . ' ' . $marketDetails->Result->market->timezone;;
   print '<br/>';
+ 
+*/
   
   // eventHierarchy
+ 
+  if ( is_array($marketDetails->Result->market->eventHierarchy) && array_key_exists('EventId', $marketDetails->Result->market->eventHierarchy) ) 
   foreach ($marketDetails->Result->market->eventHierarchy->EventId as $eventHierarchyEventId)
   {
       echo CHtml::link($eventHierarchyEventId, array('betfair/events', 'eventId'=>$eventHierarchyEventId)) . ' >> '; 
   }
+
   
   // array of selectionId and runners
   //check if array has more than one element
-  if (array_key_exists('Runner', $marketDetails->Result->market->runners ))
+
+
+  if ( is_array($marketDetails->Result->market->runners) && array_key_exists('Runner', $marketDetails->Result->market->runners ) )
   {        
       $runners = array();
       foreach($marketDetails->Result->market->runners->Runner  as $runner)
@@ -98,10 +129,11 @@ $this->breadcrumbs = array(
       }          
       print_r($runners);
   }    
-  
+ 
 ?>
 
-<h3><?php   print $marketDetails->Result->market->name; ?></h3>
+
+ <h3><?php   print $marketDetails->Result->market->name; ?></h3>
   
 
 <p>
